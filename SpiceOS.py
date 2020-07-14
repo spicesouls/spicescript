@@ -7,7 +7,7 @@ time.sleep(1)
 print(" .", end="", flush=True)
 time.sleep(1)
 print(" .", end="", flush=True)
-clear()
+print("\n\n\n")
 try:
     bootlog = open("bootlog.txt", "r")
     Lines = bootlog.readlines()
