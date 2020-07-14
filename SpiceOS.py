@@ -52,6 +52,7 @@ if bootlogfound == '\u001b[31mFAILED\u001b[0m':
     print("\n\n")
     consolemessage("Powering Off . . .")
     time.sleep(3)
+    exit()
 
 
 if modulesloaded == '\u001b[31mFAILED\u001b[0m':
@@ -60,6 +61,7 @@ if modulesloaded == '\u001b[31mFAILED\u001b[0m':
     print("\n\n")
     consolemessage("Powering Off . . .")
     time.sleep(3)
+    exit()
 
 
 
