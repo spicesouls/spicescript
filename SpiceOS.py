@@ -40,7 +40,7 @@ time.sleep(1)
 print("""
 ..................................................
 
-! I AM NOT RESPONSABLE FOR YOUR USE OF THIS TOOL !
+! I AM NOT RESPONSIBLE FOR YOUR USE OF THIS TOOL !
 
 ..................................................
 """)
