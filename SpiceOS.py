@@ -297,7 +297,7 @@ try:
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Proxies
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
-└──\u001b[38;5;208musr@fred.os\u001b[38;5;50m──►\u001b[0m """))
+└──\u001b[38;5;208musr@spice.os\u001b[38;5;50m──►\u001b[0m """))
         
 
                 if firstchoice == "1":          
@@ -311,7 +311,7 @@ try:
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
-└──\u001b[38;5;208musr@fred.os/infosec\u001b[38;5;50m──►\u001b[0m """))
+└──\u001b[38;5;208musr@spice.os/infosec\u001b[38;5;50m──►\u001b[0m """))
 
                         if infosecchoice == "1":
                                 ip = input("\n\u001b[38;5;50mIP GEOLOCATER\u001b[0m\n\nWhat IP Would You Like To Locate : ")
@@ -374,7 +374,7 @@ try:
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
-└──\u001b[38;5;208musr@fred.os/weaponslab\u001b[38;5;50m──►\u001b[0m """))                      
+└──\u001b[38;5;208musr@spice.os/weaponslab\u001b[38;5;50m──►\u001b[0m """))                      
 
 
 
@@ -407,7 +407,7 @@ try:
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
-└──\u001b[38;5;208musr@fred.os/proxies\u001b[38;5;50m──►\u001b[0m """)) 
+└──\u001b[38;5;208musr@spice.os/proxies\u001b[38;5;50m──►\u001b[0m """)) 
             
                         if proxieschoice == "1":
                                 scrapeproxies('http')
