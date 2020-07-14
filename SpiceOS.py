@@ -1,4 +1,4 @@
-
+import time
 time.sleep(3)
 print("Starting Boot Up", end="", flush=True)
 time.sleep(1)
@@ -18,7 +18,6 @@ except:
 try:
     import os; os.system("cls")
     import requests
-    import time
     import shodan
     from proxyscrape import create_collector, get_collector
     modulesloaded = ('\u001b[32mOK\u001b[0m')
