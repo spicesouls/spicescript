@@ -12,4 +12,4 @@ pip install -r requirements.txt
 
 python spiceos.py
 ```
-![Image of SpiceOS](https://github.com/spicesouls/spiceos/LLRlDbt68q.gif)
+![Image of SpiceOS](LLRlDbt68q.gif)
