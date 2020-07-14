@@ -24,15 +24,11 @@ try:
 except:
     modulesloaded = ('\u001b[31mFAILED\u001b[0m')
 print("""
-
-Loading . . .
-Starting (0.00)
-
 SpiceOS Initializing . . .
 """)
-time.sleep(1)
+time.sleep(2)
 print("Boot Check List          | ", end="", flush=True)
-time.sleep(0.2)
+time.sleep(1)
 print(bootlogfound)
 print("Boot Check List Readable | ", end="", flush=True)
 time.sleep(0.6)
@@ -41,7 +37,14 @@ print("Modules Loaded           | ", end="", flush=True)
 time.sleep(1)
 print(modulesloaded)
 time.sleep(1)
+print("""
+..................................................
 
+! I AM NOT RESPONSABLE FOR YOUR USE OF THIS TOOL !
+
+..................................................
+""")
+time.sleep(3)
 
 if bootlogfound == '\u001b[31mFAILED\u001b[0m':
     print("\n\u001b[31mERROR\u001b[0m : Please add bootlog.txt back to your directory !")
@@ -72,7 +75,7 @@ banner = """\u001b[38;5;226m
       ░            ░  ░ ░         ░  ░       ░ ░        ░  
                       ░                                    \u001b[38;5;200m
 ┌──────────────────────────────────────────────────────────────────────────────────────────────►
-| \u001b[0m \u001b[43mDeveloped By @SpiceSouls#6969\u001b[40m \u001b[38;5;200m
+| \u001b[0mDeveloped By @SpiceSouls#6969\u001b[38;5;200m
 └─────────────────────────────────────────────────────────────────────────────►\u001b[36m """                                                                                            
 
 
