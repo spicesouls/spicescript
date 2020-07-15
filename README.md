@@ -1,15 +1,15 @@
-# spiceos
+# Spice Script
 
-welcome to **spiceos** - a personal hub of tools
+welcome to **Spice Script** - a personal hub of tools
 
 **How to Install & Run**
 ```bash
 git clone https://github.com/spicesouls/spiceos
 
-cd spiceos
+cd spicescript
 
 pip install -r requirements.txt
 
-python spiceos.py
+python spicescript.py
 ```
-![Image of SpiceOS](LLRlDbt68q.gif)
+![Image of SpiceScript](LLRlDbt68q.gif)
