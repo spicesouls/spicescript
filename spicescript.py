@@ -345,6 +345,7 @@ try:
                         weaponlabchoice = str(input("""
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m01\u001b[0m] Anonymous FTP Connection
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Shodan Lookup
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Site Directory Scanner
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
@@ -368,6 +369,34 @@ try:
                                 time.sleep(3)
                                 flushletters("Version 1.0.0")
                                 print("\u001b[0m")
+
+                        if weaponlabchoice == "3":
+                            site = input("\n\u001b[38;5;50mSITE DIRECTORY SCANNER\u001b[0m\n\nWhat site would you like to scan : ")
+                            wordlist = input("What wordlist would you like to use : ")
+                            consolemessage('Starting scan...')
+                            with open(wordlist, "r") as list:
+                              for line in list:
+                                directoryaddon = line.strip()
+                                r = requests.get(site + "/" + directoryaddon)
+                                if r.status_code == 200:
+                                    print('[\u001b[32m+\u001b[0m] ' + site + '/' + directoryaddon)
+                                if r.status_code == 303:
+                                    print('[\u001b[32m+\u001b[0m] ' + site + '/' + directoryaddon)
+                                if r.status_code == 300:
+                                    print('[\u001b[32m+\u001b[0m] ' + site + '/' + directoryaddon)
+                                if r.status_code == 203:
+                                    print('[\u001b[32m+\u001b[0m] ' + site + '/' + directoryaddon)
+                                if r.status_code == 206:
+                                    print('[\u001b[32m+\u001b[0m] ' + site + '/' + directoryaddon)
+                              list.close()
+                            print('- Scan Finished -')
+                            input("Press ENTER To Go Back.")
+                            clear()
+                            print(banner, end="", flush=True)
+                            time.sleep(3)
+                            flushletters("Version 1.0.0")
+                            print("\u001b[0m")
+                            
 
                         if weaponlabchoice == "99":
                                 pass
