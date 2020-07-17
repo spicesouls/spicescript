@@ -10,6 +10,6 @@ cd spicescript
 
 pip install -r requirements.txt
 
-python spicescript.py
+python3 spicescript.py
 ```
 ![Image of SpiceScript](spicescript.PNG)
