@@ -12,4 +12,4 @@ pip install -r requirements.txt
 
 python3 spicescript.py
 ```
-![Image of SpiceScript](spicescript.PNG)
+![Image of SpiceScript](spicescriptv2.PNG)
