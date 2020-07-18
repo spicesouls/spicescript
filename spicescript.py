@@ -20,6 +20,7 @@ try:
     import requests
     import shodan
     from proxyscrape import create_collector, get_collector
+    import random
     modulesloaded = ('\u001b[32mOK\u001b[0m')
 except:
     modulesloaded = ('\u001b[31mFAILED\u001b[0m')
@@ -130,7 +131,7 @@ def anonftplogin(hostname):
         try:
             ftp = ftplib.FTP(hostname)
             consolemessage('Attempting to connect to ' + str(hostname) + '...')
-            ftp.login()
+            ftp.login('anonymous', 'me@your.com')
             consolemessage('FTP Anonymous Login Succeeded')
             ftp.quit()
             input("Press ENTER To Go Back.")
@@ -139,23 +140,6 @@ def anonftplogin(hostname):
             consolemessage('FTP Anonymous Login Failed')
             input("Press ENTER To Go Back.")
             return False
-
-def ftpbrute(hostname, username, wordlist):
-    ftp = ftplib.FTP(hostname)
-    consolemessage('Starting bruteforce for ' + hostname + ':' + username + ':' + wordlist)
-    with open(wordlist, "r") as list:
-        for line in list:
-            try:
-                passw = line.strip()
-                ftp.login(username, passw)
-                print('[\u001b[32m+\u001b[0m] ' + hostname + ' : ' + username + ' : ' + passw)
-            except:
-                pass
-        list.close()
-    consolemessage('Bruteforcing Done!')
-    input('Press ENTER To Go Back.')
-
-
 
 def shodanlookup():
         try:
@@ -204,7 +188,7 @@ def flushletters(word):
                 time.sleep(0.1)
 
 def consolemessage(message):
-        print("[\u001b[38;5;208mSS\u001b[0m]\u001b[38;5;200m─►\u001b[0m " + str(message))
+        print("[\u001b[38;5;208mCB\u001b[0m]\u001b[38;5;200m─►\u001b[0m " + str(message))
 
 
 
@@ -221,54 +205,11 @@ def boot():
                 print(line.strip())
                 time.sleep(0.01)
 
-        clear()
-        print("""
-         .AMMMMMMMMMMA.
-       .AV. :::.:.:.::MA.
-      A' :..        : .:`A
-     A'..              . `A.
-    A' :.    :::::::::  : :`A
-    M  .    :::.:.:.:::  . .M
-    M  :   ::.:.....::.:   .M
-    V : :.::.:........:.:  :V
-   A  A:    ..:...:...:.   A A
-  .V  MA:.....:M.::.::. .:AM.M
-                """)
-        time.sleep(1)
-        clear()
-        print("""
-         .AMMMMMMMMMMA.
-       .AV. :::.:.:.::MA.
-      A' :..        : .:`A
-     A'..              . `A.
-    A' :.    :::::::::  : :`A
-    M  .    :::.:.:.:::  . .M
-    M  :   ::.:.....::.:   .M
-    V : :.::.:........:.:  :V
-   A  A:    ..:...:...:.   A A
-  .V  MA:.....:M.::.::. .:AM.M
- A'  .VMMMMMMMMM:.:AMMMMMMMV: A
-:M .  .`VMM[║]MV.:A `V[║]MV .:M:
- V.:.  ..`VMMMV.:AM..`VMV' .: V
-  V.  .:. .....:AMMA. . .:. .V
-   VMM...: ...:.MMMM.: .: MMV
-       `VM: . ..M.:M..:::M'
-         `M::. .:.... .::M
-          M:.  :. .... ..M
-          V:  M:. M. :M .V
-          `V.:M.. M. :M.V' 
-                """)
-        time.sleep(1)
-        print("""
-:..::::..:::::.....::.....::::.....::.....:
-:::::::::: Developed By SpiceSouls ::::::::
-:::::::::::::::::::::::::::::::::::::::::::
-                """)
-        time.sleep(3)
+
         clear()
         print(banner, end="", flush=True)
         time.sleep(3)
-        flushletters("Version 1.0.0")
+        flushletters("Version 2.0.0")
         print("\u001b[0m")
 
         
@@ -286,11 +227,38 @@ try:
 \u001b[38;5;50m┌\u001b[0m[\u001b[38;5;208m01\u001b[0m] InfoSec
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Weapon Lab
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Proxies
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m04\u001b[0m] Fun
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
 └──\u001b[38;5;208musr@spice.script\u001b[38;5;50m──►\u001b[0m """))
         
 
+                if firstchoice == "4":
+                    funchoice = str(input("""
+\u001b[38;5;50m┌\u001b[0m[\u001b[38;5;208m01\u001b[0m] Matrix Screen
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Mr Robot Screen
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
+\u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
+|
+└──\u001b[38;5;208musr@spice.script/fun\u001b[38;5;50m──►\u001b[0m """))
+                    
+                    if funchoice == "1":
+                        input("\n\nPress CNTRL + C To Exit at any time.\nPress ENTER To Continue")
+                        print("\u001b[32m")
+                        while True:
+                            randombinary = random.randint(0, 1)
+                            print(randombinary, end="", flush=True)
+
+                    if funchoice == "2":
+                        input("\n\nPress CNTRL + C To Exit at any time.\nPress ENTER To Continue")
+                        while True:
+                            whitetext = random.randint(10000, 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)
+                            print(whitetext, end="", flush=True)
+                            redtext = random.randint(1, 1000000000000)
+                            print('\u001b[31m' + str(redtext) + '\u001b[0m', end="", flush=True)
+                            time.sleep(0.04)
+                
+                
                 if firstchoice == "1":          
                         infosecchoice = str(input("""
 \u001b[38;5;50m┌\u001b[0m[\u001b[38;5;208m01\u001b[0m] IP Geolocator
@@ -310,7 +278,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 1.0.0")
+                                flushletters("Version 2.0.0")
                                 print("\u001b[0m")
                         if infosecchoice == "2":
                                 ip = input("\n\u001b[38;5;50mPORT SCANNER\u001b[0m\n\nWhat IP Would You Like To Scan : ")
@@ -318,7 +286,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 1.0.0")
+                                flushletters("Version 2.0.0")
                                 print("\u001b[0m")
                         if infosecchoice == "3":
                                 dns = input("\n\u001b[38;5;50mREVERSE DNS\u001b[0m\n\nWhat DNS Would You Like To Reverse : ")
@@ -326,7 +294,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 1.0.0")
+                                flushletters("Version 2.0.0")
                                 print("\u001b[0m")
                         if infosecchoice == "4":
                                 dns = input("\n\u001b[38;5;50mSITE SCANNER\u001b[0m\n\nWhat Website Would You Like To Scan : ")
@@ -334,7 +302,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 1.0.0")
+                                flushletters("Version 2.0.0")
                                 print("\u001b[0m")
                         if infosecchoice == "5":
                                 dns = input("\n\u001b[38;5;50mBANNER GRABBER\u001b[0m\n\nWhere Would You Like To Grab A Banner From : ")
@@ -342,7 +310,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 1.0.0")
+                                flushletters("Version 2.0.0")
                                 print("\u001b[0m")
                         if infosecchoice == "6":
                                 number = input("\n\u001b[38;5;50mPHONE NUMBER LOOKUP\u001b[0m\n\nWhat Number Would You Like To Reverse [FORMAT: '+447410490080 / +44 Is My Dialing Code'] : ")
@@ -350,7 +318,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 1.0.0")
+                                flushletters("Version 2.0.0")
                                 print("\u001b[0m")
                         if infosecchoice == "99":
                                 pass
@@ -363,7 +331,6 @@ try:
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m01\u001b[0m] Anonymous FTP Connection
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Shodan Lookup
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Site Directory Scanner
-\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m04\u001b[0m] FTP Brute Forcer
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
@@ -377,7 +344,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 1.0.0")
+                                flushletters("Version 2.0.0")
                                 print("\u001b[0m")
 
                         if weaponlabchoice == "2":
@@ -385,7 +352,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 1.0.0")
+                                flushletters("Version 2.0.0")
                                 print("\u001b[0m")
 
                         if weaponlabchoice == "3":
@@ -412,19 +379,9 @@ try:
                             clear()
                             print(banner, end="", flush=True)
                             time.sleep(3)
-                            flushletters("Version 1.0.0")
+                            flushletters("Version 2.0.0")
                             print("\u001b[0m")
                             
-                        if weaponlabchoice == "4":
-                            host = input("\n\u001b[38;5;50mFTP BRUTE FORCER\u001b[0m\n\nWhat is the IP of the machine hosting FTP : ")
-                            wordlist = input("What wordlist would you like to use : ")
-                            user = input("What username would you like to use : ")
-                            ftpbrute(host, user, wordlist)
-                            clear()
-                            print(banner, end="", flush=True)
-                            time.sleep(3)
-                            flushletters("Version 1.0.0")
-                            print("\u001b[0m")
 
                         if weaponlabchoice == "99":
                                 pass
@@ -445,7 +402,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 1.0.0")
+                                flushletters("Version 2.0.0")
                                 print("\u001b[0m")
 
                         if proxieschoice == "2":
@@ -453,7 +410,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 1.0.0")
+                                flushletters("Version 2.0.0")
                                 print("\u001b[0m")     
 
 
@@ -462,12 +419,12 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 1.0.0")
+                                flushletters("Version 2.0.0")
                                 print("\u001b[0m")
 
 
 
 except KeyboardInterrupt:
-        print("\n\n")
+        print("\u001b[0m\n\n")
         consolemessage("Powering Off . . .")
         time.sleep(3)
