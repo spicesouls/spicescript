@@ -59,9 +59,6 @@ if bootlogfound == '\u001b[31mFAILED\u001b[0m':
 if modulesloaded == '\u001b[31mFAILED\u001b[0m':
     print("\n\u001b[31mERROR\u001b[0m : Please install requirements.txt with pip install -r requirements.txt !")
     time.sleep(5)
-    print("\n\n")
-    consolemessage("Powering Off . . .")
-    time.sleep(3)
     exit()
 
 
@@ -252,10 +249,9 @@ try:
                     if funchoice == "2":
                         input("\n\nPress CNTRL + C To Exit at any time.\nPress ENTER To Continue")
                         while True:
-                            whitetext = random.randint(10000, 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)
-                            print(whitetext, end="", flush=True)
-                            redtext = random.randint(1, 1000000000000)
-                            print('\u001b[31m' + str(redtext) + '\u001b[0m', end="", flush=True)
+                            whitetext = random.randint(1, 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)
+                            redtext = random.randint(1, 999999999999999999999999999999999999999999999999999999999999)
+                            print(str(whitetext) + '\u001b[31m' + str(redtext) + '\u001b[0m', end="", flush=True)
                             time.sleep(0.04)
                 
                 
