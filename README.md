@@ -8,7 +8,7 @@ git clone https://github.com/spicesouls/spicescript
 
 cd spicescript
 
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 
 python3 spicescript.py
 ```
