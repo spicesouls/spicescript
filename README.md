@@ -16,15 +16,25 @@ python3 spicescript.py
 Current List of Features:
 
 IP Geolocation
+
 Port Scanning
+
 IP DNS Record Finding
+
 Webpage Scanning
+
 Banner Grabber
+
 Phone Number Lookup
+
 Anonymous FTP Connecting
+
 Shodan Searching
+
 Proxy Scraping
+
 Website Directory Bruteforcing
+
 Reverse Shell Script Generating
 
 ![Image of SpiceScript](spicescriptv2.PNG)
