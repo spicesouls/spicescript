@@ -330,11 +330,11 @@ try:
                                 w = open(str(domain1) + '.txt', 'w')
                                 print("--- \u001b[32mSTART OF RESULTS\u001b[0m ---")
                                 try:
-					for i in range(0, len(resultsarray)):
-					    print(resultsarray[i])
-					    w.write(resultsarray[i] + '\n')
-				except:
-					print("Error: No Results Found")
+                                    for i in range(0, len(resultsarray)):
+                                        print(resultsarray[i])
+                                        w.write(resultsarray[i] + '\n')
+                                except:
+                                    print("Error: No Results Found")
                                 print("--- \u001b[32mEND OF RESULTS\u001b[0m ---")
                                 print("\nWritten to \u001b[32m" + str(domain1) + ".txt\u001b[0m!")
                                 w.close()
