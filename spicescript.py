@@ -18,9 +18,11 @@ except:
 try:
     import os; os.system("cls")
     import requests
+    import json
     import shodan
     from proxyscrape import create_collector, get_collector
     import random
+    import ftplib
     modulesloaded = ('\u001b[32mOK\u001b[0m')
 except:
     modulesloaded = ('\u001b[31mFAILED\u001b[0m')
@@ -79,18 +81,6 @@ banner = """\u001b[38;5;226m
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 def ipgeolocate(ip):
         print("\nLocating \u001b[38;5;208m" + str(ip) + "\u001b[0m...")
         ipinfo = requests.get('http://api.hackertarget.com/geoip/?q=' + str(ip))
@@ -134,7 +124,7 @@ def phonenumberlookup(numberstring):
         print("- Look up Finished -")
         input("Press ENTER To Go Back.")
 
-import ftplib
+
 def anonftplogin(hostname):
         try:
             ftp = ftplib.FTP(hostname)
@@ -232,7 +222,7 @@ try:
         loop = True
         while loop == True:
                 firstchoice = str(input("""
-\u001b[38;5;50m┌\u001b[0m[\u001b[38;5;208m01\u001b[0m] InfoSec
+\u001b[38;5;50m┌\u001b[0m[\u001b[38;5;208m01\u001b[0m] Spicy Enumeration
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Weapon Lab
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Proxies
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m04\u001b[0m] Fun
@@ -274,10 +264,12 @@ try:
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m04\u001b[0m] Site Scanner
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m05\u001b[0m] Banner Grabber
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m06\u001b[0m] Phone Number Lookup
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m07\u001b[0m] Site Spider
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m08\u001b[0m] Subdomain Bruteforcer
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
-└──\u001b[38;5;208musr@spice.script/infosec\u001b[38;5;50m──►\u001b[0m """))
+└──\u001b[38;5;208musr@spice.script/spicy.enumeration\u001b[38;5;50m──►\u001b[0m """))
 
                         if infosecchoice == "1":
                                 ip = input("\n\u001b[38;5;50mIP GEOLOCATER\u001b[0m\n\nWhat IP Would You Like To Locate : ")
@@ -327,6 +319,51 @@ try:
                                 time.sleep(3)
                                 flushletters("Version 3.0.0")
                                 print("\u001b[0m")
+                        if infosecchoice == "7":
+                                domain1 = input("\n\u001b[38;5;50mSITE SPIDER\u001b[0m\n\nWhat site would you like to web off of? : ")
+                                print("Sewing the web for " + str(domain1) + "...")
+                                r = requests.get('http://tls.bufferover.run/dns?q=' + str(domain1))
+                                result = json.loads(r.content)
+                                resultmeta = result['Meta']
+                                print("Completed in " + str(resultmeta["Runtime"]))
+                                resultsarray = result["Results"]
+                                w = open(str(domain1) + '.txt', 'w')
+                                print("--- \u001b[32mSTART OF RESULTS\u001b[0m ---")
+                                for i in range(0, len(resultsarray)):
+                                    print(resultsarray[i])
+                                    w.write(resultsarray[i] + '\n')
+                                print("--- \u001b[32mEND OF RESULTS\u001b[0m ---")
+                                print("\nWritten to \u001b[32m" + str(domain1) + ".txt\u001b[0m!")
+                                w.close()
+                                input("Press ENTER To Go Back.")
+                                clear()
+                                print(banner, end="", flush=True)
+                                time.sleep(3)
+                                flushletters("Version 3.0.0")
+                                print("\u001b[0m")
+                        if infosecchoice == "8":
+                            domain = input("\n\u001b[38;5;50mSUBDOMAIN BRUTE FORCER\u001b[0m\n\nWhat domain would you like to brute force for subdomains? : ")
+                            wordlist = input("What is the filepath to the wordlist you would like to use? : ")
+                            print("Starting now...")
+                            with open(wordlist, "r") as list:
+                              for line in list:
+                                directoryaddon = line.strip()
+                                try:
+                                    r = requests.get('https://' + directoryaddon + '.' + domain)
+                                    print('[\u001b[32m+\u001b[0m] ' + directoryaddon + '.' + domain)
+                                except:
+                                    pass
+                              list.close()
+                            print('- Scan Finished -')
+                            input("Press ENTER To Go Back.")
+                            clear()
+                            print(banner, end="", flush=True)
+                            time.sleep(3)
+                            flushletters("Version 3.0.0")
+                            print("\u001b[0m")
+
+
+
                         if infosecchoice == "99":
                                 pass
 
@@ -337,7 +374,7 @@ try:
                         weaponlabchoice = str(input("""
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m01\u001b[0m] Anonymous FTP Connection
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Shodan Lookup
-\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Site Directory Scanner
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Site Directory Brute Forcer
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m04\u001b[0m] Reverse Shell Generator
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
@@ -630,8 +667,6 @@ exec("/bin/sh -i");
                                 time.sleep(3)
                                 flushletters("Version 3.0.0")
                                 print("\u001b[0m")
-
-
 
 except KeyboardInterrupt:
         print("\u001b[0m\n\n")
