@@ -14,7 +14,7 @@ python3 spicescript.py
 ```
 
 Current List of Features:
-
+```
 IP Geolocation
 
 Port Scanning
@@ -36,5 +36,12 @@ Proxy Scraping
 Website Directory Bruteforcing
 
 Reverse Shell Script Generating
+
+Scanning Domains For Server's hosting, Subdomains and more!
+
+Subdomain Brute Forcing
+```
+
+And more to come! :)
 
 ![Image of SpiceScript](spicescriptv2.PNG)
