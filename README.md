@@ -1,6 +1,10 @@
 # Spice Script
 
-welcome to **Spice Script** - a personal hub of tools
+Welcome to **Spice Script** - A ToolKit for enumeration and a headstart on attacking! ( For educational purpouses of course ;) )
+
+..................................................
+! I AM NOT RESPONSIBLE FOR YOUR USE OF THIS TOOL !
+..................................................
 
 **How to Install & Run**
 ```bash
@@ -40,6 +44,8 @@ Reverse Shell Script Generating
 Scanning Domains For Server's hosting, Subdomains and more!
 
 Subdomain Brute Forcing
+
+SSH Login Brute Forcing
 ```
 
 And more to come! :)
