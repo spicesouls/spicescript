@@ -1,6 +1,4 @@
 requests
 shodan
 proxyscrape
-ftplib
-json
 paramiko 
