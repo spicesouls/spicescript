@@ -17,6 +17,7 @@ except:
 
 try:
     import os; os.system("cls")
+    import socket
     import requests
     import json
     import shodan
@@ -91,12 +92,31 @@ def ipgeolocate(ip):
         input("Press ENTER To Go Back.")
 
 def portscanner(ip):
-        print("\nScanning ports for \u001b[38;5;208m" + str(ip) + "\u001b[0m...")
-        r = requests.get('http://api.hackertarget.com/nmap/?q=' + ip)
-        r = r.text[69:]
-        print("\n" + r.title())
-        print('- Scan Finished -')
-        input("Press ENTER To Go Back.")
+        print("\nScanning ports for \u001b[38;5;208m" + str(ip) + "\u001b[0m...\nPress CNTRL + C At Any Time To End the Scan!")
+        openlist = []
+        try:
+            for port in range(1,1025):  
+                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                result = sock.connect_ex((ip, port))
+                if result == 0:
+                    print("[\u001b[32mOPEN\u001b[0m] Port {}".format(port))
+                    openlist.append(port)
+                else:
+                    print("[\u001b[31mCLOSED\u001b[0m] Port {}".format(port))
+                sock.close()
+        except socket.gaierror:
+            print('ERROR: Hostname could not be resolved.')
+
+        except socket.error:
+            print("ERROR: Couldn't connect to server.")
+
+        except KeyboardInterrupt:
+            pass
+
+        print("\n\n--- SCAN FINISHED ---\n\nOpen Ports\n")
+        for i in range(len(openlist)):
+            print("[\u001b[32mOPEN\u001b[0m] Port {}".format(openlist[i]))
+        input("\nPress ENTER To Go Back.")
 
 def reversedns(dns):
         print("Reversing DNS For \u001b[38;5;208m" + str(dns) + "\u001b[0m...")
