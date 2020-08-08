@@ -47,6 +47,8 @@ Subdomain Brute Forcing
 SSH Login Brute Forcing
 ```
 
-And more to come! :)
+And more to come!
+
+This little script is my project I work on for fun, if you have any ideas to contribute or any bugs you want fixed just contact me :)
 
 ![Image of SpiceScript](spicescriptv2.PNG)
