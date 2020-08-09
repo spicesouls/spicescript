@@ -44,6 +44,9 @@ time.sleep(1)
 print(modulesloaded)
 time.sleep(1)
 print("""
+/bin/spicescript Loaded; Booting...""")
+time.sleep(0.2)
+print("""
 ..................................................
 ! I AM NOT RESPONSIBLE FOR YOUR USE OF THIS TOOL !
 ..................................................
@@ -109,6 +112,8 @@ def portscanner(ip):
 
         except socket.error:
             print("ERROR: Couldn't connect to server.")
+
+
 
         except KeyboardInterrupt:
             pass
@@ -208,7 +213,7 @@ def flushletters(word):
                 time.sleep(0.1)
 
 def consolemessage(message):
-        print("[\u001b[38;5;208mCB\u001b[0m]\u001b[38;5;200m─►\u001b[0m " + str(message))
+        print("[\u001b[38;5;208mSpiceScript\u001b[0m]\u001b[38;5;50m─►\u001b[0m " + str(message))
 
 
 
@@ -229,7 +234,7 @@ def boot():
         clear()
         print(banner, end="", flush=True)
         time.sleep(3)
-        flushletters("Version 3.0.0")
+        flushletters("Version 4.0.0")
         print("\u001b[0m")
 
         
@@ -245,9 +250,9 @@ try:
         while loop == True:
                 firstchoice = str(input("""
 \u001b[38;5;50m┌\u001b[0m[\u001b[38;5;208m01\u001b[0m] Spicy Enumeration
-\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Weapon Lab
-\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Proxies
-\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m04\u001b[0m] Fun
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Spicy Weapon Lab
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Spicy Proxies
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m04\u001b[0m] Other
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
 └──\u001b[38;5;208musr@spice.script\u001b[38;5;50m──►\u001b[0m """))
@@ -260,7 +265,7 @@ try:
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
-└──\u001b[38;5;208musr@spice.script/fun\u001b[38;5;50m──►\u001b[0m """))
+└──\u001b[38;5;208musr@spice.script/other\u001b[38;5;50m──►\u001b[0m """))
                     
                     if funchoice == "1":
                         input("\n\nPress CNTRL + C To Exit at any time.\nPress ENTER To Continue")
@@ -299,7 +304,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 3.0.0")
+                                flushletters("Version 4.0.0")
                                 print("\u001b[0m")
                         if infosecchoice == "2":
                                 ip = input("\n\u001b[38;5;50mPORT SCANNER\u001b[0m\n\nWhat IP Would You Like To Scan : ")
@@ -307,7 +312,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 3.0.0")
+                                flushletters("Version 4.0.0")
                                 print("\u001b[0m")
                         if infosecchoice == "3":
                                 dns = input("\n\u001b[38;5;50mREVERSE DNS\u001b[0m\n\nWhat DNS Would You Like To Reverse : ")
@@ -315,7 +320,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 3.0.0")
+                                flushletters("Version 4.0.0")
                                 print("\u001b[0m")
                         if infosecchoice == "4":
                                 dns = input("\n\u001b[38;5;50mSITE SCANNER\u001b[0m\n\nWhat Website Would You Like To Scan : ")
@@ -323,7 +328,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 3.0.0")
+                                flushletters("Version 4.0.0")
                                 print("\u001b[0m")
                         if infosecchoice == "5":
                                 dns = input("\n\u001b[38;5;50mBANNER GRABBER\u001b[0m\n\nWhere Would You Like To Grab A Banner From : ")
@@ -331,7 +336,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 3.0.0")
+                                flushletters("Version 4.0.0")
                                 print("\u001b[0m")
                         if infosecchoice == "6":
                                 number = input("\n\u001b[38;5;50mPHONE NUMBER LOOKUP\u001b[0m\n\nWhat Number Would You Like To Reverse [FORMAT: '+447410490080 / +44 Is My Dialing Code'] : ")
@@ -339,7 +344,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 3.0.0")
+                                flushletters("Version 4.0.0")
                                 print("\u001b[0m")
                         if infosecchoice == "7":
                                 domain1 = input("\n\u001b[38;5;50mSITE SPIDER\u001b[0m\n\nWhat site would you like to web off of? : ")
@@ -364,7 +369,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 3.0.0")
+                                flushletters("Version 4.0.0")
                                 print("\u001b[0m")
                         if infosecchoice == "8":
                             domain = input("\n\u001b[38;5;50mSUBDOMAIN BRUTE FORCER\u001b[0m\n\nWhat domain would you like to brute force for subdomains? : ")
@@ -384,7 +389,7 @@ try:
                             clear()
                             print(banner, end="", flush=True)
                             time.sleep(3)
-                            flushletters("Version 3.0.0")
+                            flushletters("Version 4.0.0")
                             print("\u001b[0m")
 
 
@@ -403,10 +408,11 @@ try:
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m04\u001b[0m] SSH Credential Brute Forcer
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m05\u001b[0m] FTP Credential Brute Forcer
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m06\u001b[0m] Reverse Shell Generator
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m07\u001b[0m] Wordlist Generator
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
-└──\u001b[38;5;208musr@spice.script/weaponslab\u001b[38;5;50m──►\u001b[0m """))                      
+└──\u001b[38;5;208musr@spice.script/spicy.weapon.lab\u001b[38;5;50m──►\u001b[0m """))                      
 
 
 
@@ -416,7 +422,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 3.0.0")
+                                flushletters("Version 4.0.0")
                                 print("\u001b[0m")
 
                         if weaponlabchoice == "2":
@@ -424,7 +430,7 @@ try:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 3.0.0")
+                                flushletters("Version 4.0.0")
                                 print("\u001b[0m")
 
                         if weaponlabchoice == "3":
@@ -451,7 +457,7 @@ try:
                             clear()
                             print(banner, end="", flush=True)
                             time.sleep(3)
-                            flushletters("Version 3.0.0")
+                            flushletters("Version 4.0.0")
                             print("\u001b[0m")
                             
 
@@ -468,6 +474,9 @@ try:
                                     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
                                     try:
                                         client.connect(hostname=target, username=username, password=password, timeout=3)
+
+                                    except paramiko.ssh_exception.SSHException:
+                                        print('SSH Banner ERROR')
                                     except:
                                         print("[\u001b[31m-\u001b[0m] " + username + '@' + target + ':' + password)
                                     else:
@@ -478,7 +487,7 @@ try:
                             clear()
                             print(banner, end="", flush=True)
                             time.sleep(3)
-                            flushletters("Version 3.0.0")
+                            flushletters("Version 4.0.0")
                             print("\u001b[0m")
 
                         
@@ -486,7 +495,7 @@ try:
                             host = str(input("\n\u001b[38;5;50mFTP CREDENTIAL BRUTE FORCER\u001b[0m\n\nWhat FTP Host would you like to brute force the credentials to? : "))
                             username = input("What username would you like to use? : ")
                             wordlist = input("What is the file path of the wordlist you would like to use? : ")
-                            print("Brute Forcing the FTP credentials for " + str(username) + "@" + str(host) + "...")
+                            print("Brute Forcing the FTP credentials for " + str(username) + "@" + str(target) + "...")
                             with open(str(wordlist), 'r') as list:
                                 for line in list:
                                     try:
@@ -503,7 +512,7 @@ try:
                             clear()
                             print(banner, end="", flush=True)
                             time.sleep(3)
-                            flushletters("Version 3.0.0")
+                            flushletters("Version 4.0.0")
                             print("\u001b[0m")
 
 
@@ -670,7 +679,7 @@ function printit ($string) {
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 3.0.0")
+                                flushletters("Version 4.0.0")
                                 print("\u001b[0m")
 
                             if shellchoice == "2":
@@ -697,17 +706,49 @@ exec("/bin/sh -i");
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 3.0.0")
+                                flushletters("Version 4.0.0")
                                 print("\u001b[0m")
 
                             else:
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 3.0.0")
+                                flushletters("Version 4.0.0")
                                 print("\u001b[0m")
 
                             
+                        if weaponlabchoice == "7":
+                            keywords = []
+                            print("\n\u001b[38;5;50mWORDLIST GENERATOR\u001b[0m\n\nEnter any keywords you would like to use and press CNTRL + C once you are done. ")
+                            try:
+                                while True:
+                                    keyword = input(": ")
+                                    keywords.append(str(keyword))
+                            except:
+                                print("\nGenerating Wordlist...")
+                                with open('generated_wordlist.txt', 'w') as file:
+                                    for i in range(len(keywords)):
+                                        for l in range(len(keywords)):
+                                            for n in range(1,1000):
+                                                file.write(str(keywords[i]) + str(keywords[l]) + '\n')
+                                                print('\u001b[32mWritten\u001b[0m ' + str(keywords[i]) + str(keywords[l]))
+                                                file.write(str(keywords[i]) + str(keywords[l]) + str(n) + '\n')
+                                                print('\u001b[32mWritten\u001b[0m ' + str(keywords[i]) + str(keywords[l]) + str(n))
+                                                file.write(str(n) + str(keywords[i]) + str(keywords[l]) + '\n')
+                                                print('\u001b[32mWritten\u001b[0m ' + str(n) + str(keywords[i]) + str(keywords[l]))
+
+                                    file.close()
+                            input("Finished! Written to generated_wordlist.txt!\n\nPress ENTER To Go Back.")
+                            clear()
+                            print(banner, end="", flush=True)
+                            time.sleep(3)
+                            flushletters("Version 4.0.0")
+                            print("\u001b[0m")
+
+                                
+
+
+
                         if weaponlabchoice == "99":
                             pass
 
@@ -727,7 +768,7 @@ exec("/bin/sh -i");
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 3.0.0")
+                                flushletters("Version 4.0.0")
                                 print("\u001b[0m")
 
                         if proxieschoice == "2":
@@ -735,7 +776,7 @@ exec("/bin/sh -i");
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 3.0.0")
+                                flushletters("Version 4.0.0")
                                 print("\u001b[0m")     
 
 
@@ -744,7 +785,7 @@ exec("/bin/sh -i");
                                 clear()
                                 print(banner, end="", flush=True)
                                 time.sleep(3)
-                                flushletters("Version 3.0.0")
+                                flushletters("Version 4.0.0")
                                 print("\u001b[0m")
 
 except KeyboardInterrupt:
