@@ -474,9 +474,6 @@ try:
                                     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
                                     try:
                                         client.connect(hostname=target, username=username, password=password, timeout=3)
-
-                                    except paramiko.ssh_exception.SSHException:
-                                        print('SSH Banner ERROR')
                                     except:
                                         print("[\u001b[31m-\u001b[0m] " + username + '@' + target + ':' + password)
                                     else:
