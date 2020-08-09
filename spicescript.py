@@ -473,7 +473,7 @@ try:
                                     client = paramiko.SSHClient()
                                     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
                                     try:
-                                        client.connect(hostname=target, username=username, password=password, timeout=3)
+                                        client.connect(hostname=target, username=username, password=password, timeout=5, banner_timeout=10)
                                     except:
                                         print("[\u001b[31m-\u001b[0m] " + username + '@' + target + ':' + password)
                                     else:
