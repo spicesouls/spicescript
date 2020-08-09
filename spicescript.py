@@ -486,7 +486,7 @@ try:
                             host = str(input("\n\u001b[38;5;50mFTP CREDENTIAL BRUTE FORCER\u001b[0m\n\nWhat FTP Host would you like to brute force the credentials to? : "))
                             username = input("What username would you like to use? : ")
                             wordlist = input("What is the file path of the wordlist you would like to use? : ")
-                            print("Brute Forcing the FTP credentials for " + str(username) + "@" + str(target) + "...")
+                            print("Brute Forcing the FTP credentials for " + str(username) + "@" + str(host) + "...")
                             with open(str(wordlist), 'r') as list:
                                 for line in list:
                                     try:
