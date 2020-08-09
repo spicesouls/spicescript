@@ -45,6 +45,8 @@ Scanning Domains For Server's hosting, Subdomains and more!
 Subdomain Brute Forcing
 
 SSH Login Brute Forcing
+
+Wordlist Generation
 ```
 
 And more to come!
