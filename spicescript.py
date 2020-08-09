@@ -730,8 +730,16 @@ exec("/bin/sh -i");
                                     for i in range(len(keywords)):
                                         for l in range(len(keywords)):
                                             for n in range(1,1000):
+                                                file.write(str(keywords[i]) + '\n')
+                                                print('\u001b[32mWritten\u001b[0m ' + str(keywords[i]))
                                                 file.write(str(keywords[i]) + str(keywords[l]) + '\n')
                                                 print('\u001b[32mWritten\u001b[0m ' + str(keywords[i]) + str(keywords[l]))
+                                                
+                                                file.write(str(keywords[i]) + str(n) + '\n')
+                                                print('\u001b[32mWritten\u001b[0m ' + str(keywords[i]) + str(keywords[l]) + str(n))
+                                                file.write(str(n) + str(keywords[i]) + '\n')
+                                                print('\u001b[32mWritten\u001b[0m ' + str(n) + str(keywords[i]) + str(keywords[l]))
+
                                                 file.write(str(keywords[i]) + str(keywords[l]) + str(n) + '\n')
                                                 print('\u001b[32mWritten\u001b[0m ' + str(keywords[i]) + str(keywords[l]) + str(n))
                                                 file.write(str(n) + str(keywords[i]) + str(keywords[l]) + '\n')
