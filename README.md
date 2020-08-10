@@ -1,6 +1,6 @@
 # Spice Script
 
-Welcome to **Spice Script** - A ToolKit for enumeration and a headstart on attacking! ( For educational purpouses of course ;) )
+Welcome to **Spice Script** - A ToolKit for enumeration and a headstart on attacking! ( For educational purposes of course ;) )
 
 **! I AM NOT RESPONSIBLE FOR YOUR USE OF THIS TOOL !**
 
