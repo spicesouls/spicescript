@@ -49,6 +49,10 @@ SSH Login Brute Forcing
 Wordlist Generation
 
 Ping Source Spoofing
+
+Listing IPV4 Routes
+
+Listing IPV6 Routes
 ```
 
 And more to come!
