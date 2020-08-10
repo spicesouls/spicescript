@@ -20,6 +20,7 @@ try:
     import socket
     import requests
     from scapy.all import *
+    from scapy.layers.http import HTTPRequest
     import json
     import shodan
     from proxyscrape import create_collector, get_collector
@@ -252,7 +253,7 @@ try:
                 firstchoice = str(input("""
 \u001b[38;5;50m┌\u001b[0m[\u001b[38;5;208m01\u001b[0m] Spicy Enumeration
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Spicy Offense
-\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Spicy Proxies
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Spicy Networking
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m04\u001b[0m] Other
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
@@ -295,9 +296,6 @@ try:
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m07\u001b[0m] Site Spider
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m08\u001b[0m] Subdomain Bruteforcer
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m09\u001b[0m] Shodan Search
-\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m10\u001b[0m] Mac Address From IP
-\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m11\u001b[0m] List IPV4 Routes
-\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m12\u001b[0m] List IPV6 Routes
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
@@ -408,40 +406,7 @@ try:
 
 
 
-                        if infosecchoice == "10":
-                            ip = input("\n\u001b[38;5;50mMAC ADDRESS FROM IP\u001b[0m\n\nWhat IP Would you like to get a Mac Address From? : ")
-                            print("Getting the Mac Address of " + str(ip) + "...")
-                            try:
-                                mac = getmacbyip(str(ip))
-                                print("\n[\u001b[32m+\u001b[0m] Success! " + str(ip) + " : " + str(mac))
-                            except:
-                                print("\n[\u001b[31m-\u001b[0m] Failed to get the Mac Address of " + str(ip) + ".")
-                            input("\nPress ENTER To Go Back.")
-                            clear()
-                            print(banner, end="", flush=True)
-                            time.sleep(3)
-                            flushletters("Version 4.0.0")
-                            print("\u001b[0m")
 
-                        if infosecchoice == "11":
-                            print("\n\u001b[38;5;50mLIST IPV4 ROUTES\u001b[0m\n\nGetting list of IPV4 routes...")
-                            print(conf.route)
-                            input("\nPress ENTER To Go Back.")
-                            clear()
-                            print(banner, end="", flush=True)
-                            time.sleep(3)
-                            flushletters("Version 4.0.0")
-                            print("\u001b[0m")
-
-                        if infosecchoice == "12":
-                            print("\n\u001b[38;5;50mLIST IPV6 ROUTES\u001b[0m\n\nGetting list of IPV6 routes...")
-                            print(conf.route6)
-                            input("\nPress ENTER To Go Back.")
-                            clear()
-                            print(banner, end="", flush=True)
-                            time.sleep(3)
-                            flushletters("Version 4.0.0")
-                            print("\u001b[0m")
 
                         if infosecchoice == "99":
                                 pass
@@ -811,47 +776,98 @@ exec("/bin/sh -i");
                             print("\u001b[0m")
 
                                 
-
-
-
                         if weaponlabchoice == "99":
                             pass
 
                 if firstchoice == "3":
 
-                        proxieschoice = str(input("""
-\u001b[38;5;50m┌\u001b[0m[\u001b[38;5;208m01\u001b[0m] HTTP
-\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Socks4
-\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Socks5
+                        networkingchoice = str(input("""
+\u001b[38;5;50m┌\u001b[0m[\u001b[38;5;208m01\u001b[0m] List IPV4 Routes
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] List IPV6 Routes
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Mac Address From IP
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m04\u001b[0m] ARP Monitor
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m05\u001b[0m] HTTP Monitor
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
-└──\u001b[38;5;208musr@spice.script/proxies\u001b[38;5;50m──►\u001b[0m """)) 
-            
-                        if proxieschoice == "1":
-                                scrapeproxies('http')
-                                clear()
-                                print(banner, end="", flush=True)
-                                time.sleep(3)
-                                flushletters("Version 4.0.0")
-                                print("\u001b[0m")
+└──\u001b[38;5;208musr@spice.script/spicy.networking\u001b[38;5;50m──►\u001b[0m """)) 
+                        
+                        if networkingchoice == "3":
+                            ip = input("\n\u001b[38;5;50mMAC ADDRESS FROM IP\u001b[0m\n\nWhat IP Would you like to get a Mac Address From? : ")
+                            print("Getting the Mac Address of " + str(ip) + "...")
+                            try:
+                                mac = getmacbyip(str(ip))
+                                print("\n[\u001b[32m+\u001b[0m] Success! " + str(ip) + " : " + str(mac))
+                            except:
+                                print("\n[\u001b[31m-\u001b[0m] Failed to get the Mac Address of " + str(ip) + ".")
+                            input("\nPress ENTER To Go Back.")
+                            clear()
+                            print(banner, end="", flush=True)
+                            time.sleep(3)
+                            flushletters("Version 4.0.0")
+                            print("\u001b[0m")
 
-                        if proxieschoice == "2":
-                                scrapeproxies('socks4')
-                                clear()
-                                print(banner, end="", flush=True)
-                                time.sleep(3)
-                                flushletters("Version 4.0.0")
-                                print("\u001b[0m")     
+                        if networkingchoice == "1":
+                            print("\n\u001b[38;5;50mLIST IPV4 ROUTES\u001b[0m\n\nGetting list of IPV4 routes...")
+                            print(conf.route)
+                            input("\nPress ENTER To Go Back.")
+                            clear()
+                            print(banner, end="", flush=True)
+                            time.sleep(3)
+                            flushletters("Version 4.0.0")
+                            print("\u001b[0m")
+
+                        if networkingchoice == "2":
+                            print("\n\u001b[38;5;50mLIST IPV6 ROUTES\u001b[0m\n\nGetting list of IPV6 routes...")
+                            print(conf.route6)
+                            input("\nPress ENTER To Go Back.")
+                            clear()
+                            print(banner, end="", flush=True)
+                            time.sleep(3)
+                            flushletters("Version 4.0.0")
+                            print("\u001b[0m")
 
 
-                        if proxieschoice == "3":
-                                scrapeproxies('socks5')
-                                clear()
-                                print(banner, end="", flush=True)
-                                time.sleep(3)
-                                flushletters("Version 4.0.0")
-                                print("\u001b[0m")
+
+
+                        if networkingchoice == "4":
+                            print("\n\u001b[38;5;50mARP MONITOR\u001b[0m\n\n")
+                            print("Monitoring ARP Requests...")
+                            def arp_display(pkt):
+                                if pkt[ARP].op == 1: #who-has (request)
+                                    return ("[\u001b[32mARP\u001b[0m who-has] " + str(pkt[ARP].psrc) + " is asking about " + str(pkt[ARP].pdst))
+                                if pkt[ARP].op == 2: #is-at (response)
+                                    return ("[\u001b[32mARP\u001b[0m is-at] " + str(pkt[ARP].hwsrc) + " has address " + str(pkt[ARP].psrc))
+                            while True:
+                                sniff(prn=arp_display, filter="arp", store=0, count=10)
+
+
+
+
+
+                        if networkingchoice == "5":
+                            print("\n\u001b[38;5;50mHTTP MONITOR\u001b[0m\n\n")
+                            print("Monitoring HTTP Requests...")
+                            def process_packet(packet):
+                                if packet.haslayer(HTTPRequest):
+                                    # get the requested URL
+                                    url = packet[HTTPRequest].Host.decode() + packet[HTTPRequest].Path.decode()
+                                    # get the requester's IP Address
+                                    ip = packet[IP].src
+                                    # get the request method
+                                    method = packet[HTTPRequest].Method.decode()
+                                    print("[\u001b[32m+\u001b[0m] " + str(ip) + " Requested \u001b[32m" + str(url) + "\u001b[0m with \u001b[32m" + str(method) + "\u001b[0m")
+                            while True:
+                                sniff(filter="port 80", prn=process_packet, store=False)
+
+
+                            input("Press ENTER To Go Back.")
+                            clear()
+                            print(banner, end="", flush=True)
+                            time.sleep(3)
+                            flushletters("Version 4.0.0")
+                            print("\u001b[0m")
+
 
 except KeyboardInterrupt:
         print("\u001b[0m\n\n")
