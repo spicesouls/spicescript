@@ -19,6 +19,7 @@ try:
     import os; os.system("cls")
     import socket
     import requests
+    from scapy.all import *
     import json
     import shodan
     from proxyscrape import create_collector, get_collector
@@ -250,7 +251,7 @@ try:
         while loop == True:
                 firstchoice = str(input("""
 \u001b[38;5;50m┌\u001b[0m[\u001b[38;5;208m01\u001b[0m] Spicy Enumeration
-\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Spicy Weapon Lab
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Spicy Offense
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Spicy Proxies
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m04\u001b[0m] Other
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
@@ -293,6 +294,7 @@ try:
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m06\u001b[0m] Phone Number Lookup
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m07\u001b[0m] Site Spider
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m08\u001b[0m] Subdomain Bruteforcer
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m09\u001b[0m] Shodan Search
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
@@ -393,6 +395,15 @@ try:
                             print("\u001b[0m")
 
 
+                        if infosecchoice == "9":
+                                shodanlookup()
+                                clear()
+                                print(banner, end="", flush=True)
+                                time.sleep(3)
+                                flushletters("Version 4.0.0")
+                                print("\u001b[0m")
+
+
 
                         if infosecchoice == "99":
                                 pass
@@ -403,7 +414,7 @@ try:
                 if firstchoice == "2":
                         weaponlabchoice = str(input("""
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m01\u001b[0m] Anonymous FTP Connection
-\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Shodan Lookup
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Spoofed Ping
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Site Directory Brute Forcer
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m04\u001b[0m] SSH Credential Brute Forcer
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m05\u001b[0m] FTP Credential Brute Forcer
@@ -412,12 +423,12 @@ try:
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
-└──\u001b[38;5;208musr@spice.script/spicy.weapon.lab\u001b[38;5;50m──►\u001b[0m """))                      
+└──\u001b[38;5;208musr@spice.script/spicy.offense\u001b[38;5;50m──►\u001b[0m """))                      
 
 
 
                         if weaponlabchoice == "1":
-                                host = input("\n\u001b[38;5;50mANONYMOUS FTP CONNECTOR\u001b[0m\n\nWhat Host Would You Like to Connect To : ")
+                                host = input("\n\u001b[38;5;50mANONYMOUS FTP CONNECTOR\u001b[0m\n\nWhat Host Would You Like to Connect To? : ")
                                 anonftplogin(host)
                                 clear()
                                 print(banner, end="", flush=True)
@@ -426,13 +437,21 @@ try:
                                 print("\u001b[0m")
 
                         if weaponlabchoice == "2":
-                                shodanlookup()
-                                clear()
-                                print(banner, end="", flush=True)
-                                time.sleep(3)
-                                flushletters("Version 4.0.0")
-                                print("\u001b[0m")
-
+                            destination = input("\n\u001b[38;5;50mSPOOFED PING\u001b[0m\n\nWhat Host Would You Like to Ping? : ")
+                            source = input("What would you like to spoof the Source IP To Be? : ")
+                            print('Pinging ' + str(destination) + ' spoofing ourselves as ' + str(source) + '...')
+                            icmp = IP(dst=str(destination), src=str(source))/ICMP()
+                            resp = sr1(icmp,timeout=10)
+                            if resp == None:
+                                print("[\u001b[31m-\u001b[0m] No response, Host may be down.")
+                            else:
+                                print("[\u001b[32m+\u001b[0m] Success! The spoofed packet has been sent and acknowledged!")
+                            input('\nPress ENTER To Go Back.')
+                            clear()
+                            print(banner, end="", flush=True)
+                            time.sleep(3)
+                            flushletters("Version 4.0.0")
+                            print("\u001b[0m")
                         if weaponlabchoice == "3":
                             site = input("\n\u001b[38;5;50mSITE DIRECTORY SCANNER\u001b[0m\n\nWhat site would you like to scan : ")
                             wordlist = input("What wordlist would you like to use : ")
