@@ -2,3 +2,4 @@ requests
 shodan
 proxyscrape
 paramiko 
+scapy
