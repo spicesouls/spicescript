@@ -414,7 +414,7 @@ try:
                 if firstchoice == "2":
                         weaponlabchoice = str(input("""
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m01\u001b[0m] Anonymous FTP Connection
-\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Spoofed Ping
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m02\u001b[0m] Ping Source Spoofer
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m03\u001b[0m] Site Directory Brute Forcer
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m04\u001b[0m] SSH Credential Brute Forcer
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m05\u001b[0m] FTP Credential Brute Forcer
@@ -437,8 +437,8 @@ try:
                                 print("\u001b[0m")
 
                         if weaponlabchoice == "2":
-                            destination = input("\n\u001b[38;5;50mSPOOFED PING\u001b[0m\n\nWhat Host Would You Like to Ping? : ")
-                            source = input("What would you like to spoof the Source IP To Be? : ")
+                            destination = input("\n\u001b[38;5;50mPING SOURCE SPOOFER\u001b[0m\n\nWhat Host Would You Like to Ping? : ")
+                            source = input("What would you like to Spoof the Source IP To Be? : ")
                             print('Pinging ' + str(destination) + ' spoofing ourselves as ' + str(source) + '...')
                             icmp = IP(dst=str(destination), src=str(source))/ICMP()
                             resp = sr1(icmp,timeout=10)
