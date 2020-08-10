@@ -47,6 +47,8 @@ Subdomain Brute Forcing
 SSH Login Brute Forcing
 
 Wordlist Generation
+
+Ping Spoofing
 ```
 
 And more to come!
