@@ -13,7 +13,7 @@ cd spicescript
 
 pip3 install -r requirements.txt
 
-python3 spicescript.py
+sudo python3 spicescript.py
 ```
 
 Current List of Features:
