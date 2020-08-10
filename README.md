@@ -48,7 +48,7 @@ SSH Login Brute Forcing
 
 Wordlist Generation
 
-Ping Spoofing
+Ping Source Spoofing
 ```
 
 And more to come!
