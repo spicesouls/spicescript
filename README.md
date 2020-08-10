@@ -55,6 +55,10 @@ IP -> Mac Address
 Listing IPV4 Routes
 
 Listing IPV6 Routes
+
+ARP Monitoring
+
+HTTP Monitoring
 ```
 
 And more to come!
