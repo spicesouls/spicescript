@@ -11,7 +11,7 @@ git clone https://github.com/spicesouls/spicescript
 
 cd spicescript
 
-sudo pip3 install -r requirements.txt
+pip3 install -r requirements.txt
 
 sudo python3 spicescript.py
 ```
