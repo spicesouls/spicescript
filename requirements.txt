@@ -4,3 +4,4 @@ proxyscrape
 paramiko 
 scapy
 pynput
+colorama
