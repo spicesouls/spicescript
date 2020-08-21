@@ -3,4 +3,4 @@ shodan
 proxyscrape
 paramiko 
 scapy
-keyboard
+pynput
