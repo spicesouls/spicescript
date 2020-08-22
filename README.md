@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/spicesouls/spicescript">
-    <img src="spicescriptv2.PNG" alt="Logo" width="560" height="160">
+    <img src="spicescriptv2.PNG" alt="Logo" width="580" height="160">
   </a>
   <h3 align="center">SpiceScript</h3>
 </p>
