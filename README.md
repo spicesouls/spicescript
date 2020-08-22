@@ -11,9 +11,9 @@ git clone https://github.com/spicesouls/spicescript
 
 cd spicescript
 
-pip3 install -r requirements.txt
+chmod +x setup.sh
 
-sudo python3 spicescript.py
+./setup.sh
 ```
 
 Current List of Features:
