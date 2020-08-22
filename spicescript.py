@@ -23,7 +23,6 @@ try:
     from scapy.layers.http import HTTPRequest
     import json
     from pynput.keyboard import Key, Listener
-    import logging
     import shodan
     from proxyscrape import create_collector, get_collector
     import random
