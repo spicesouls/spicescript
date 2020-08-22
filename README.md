@@ -1,11 +1,15 @@
-# Spice Script
+<p align="center">
+  <a href="https://github.com/spicesouls/spicescript">
+    <img src="spicescriptv2.PNG" alt="Logo" width="560" height="160">
+  </a>
+  <h3 align="center">SpiceScript</h3>
+</p>
 
 Welcome to **Spice Script** - A ToolKit for enumeration and a headstart on attacking! ( For educational purposes of course ;) )
 
 **! I AM NOT RESPONSIBLE FOR YOUR USE OF THIS TOOL !**
 
-
-**How to Install & Run**
+### How to Install & Run
 ```bash
 git clone https://github.com/spicesouls/spicescript
 
@@ -16,7 +20,7 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-Current List of Features:
+### Current List of Features:
 ```
 IP Geolocation
 
@@ -59,10 +63,8 @@ Listing IPV6 Routes
 ARP Monitoring
 
 HTTP Monitoring
+
+Key Logging
 ```
 
-And more to come!
-
 This little script is my project I work on for fun, if you have any ideas to contribute or any bugs you want fixed just contact me :)
-
-![Image of SpiceScript](spicescriptv2.PNG)
