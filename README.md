@@ -5,6 +5,9 @@
   <h1 align="center">SpiceScript</h1>
 </p>
 
+<p aligh="center">
+  <img src="https://img.shields.io/badge/made%20with-python-blue.svg?style=flat-square" alt="made with python"> <a href="https://github.com/spicesouls/spicescript/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/spicesouls/spicescript"></a> <a href="https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fspicesouls%2Fspicescript"><img alt="Twitter" src="https://img.shields.io/twitter/url?url=https%3A%2F%2Ftwitter.com%2FSpicySoulsV"></a>
+</p>
 Welcome to **Spice Script** - A ToolKit for enumeration and a headstart on attacking! ( For educational purposes of course ;) )
 
 **! I AM NOT RESPONSIBLE FOR YOUR USE OF THIS TOOL !**
